@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    bool runtask = 1;
+    bool runtask = 1; // Determining if the application is running
 
     do
     {
@@ -14,11 +14,11 @@ int main()
         cout << "2. SGPA Calculator" << endl;
         cout << "3. Quit Application" << endl;
 
-        int option;
+        int option; // Users selection
         cout << "Select what best fits your needs > " << flush;
         cin >> option;
 
-        if (cin.good())
+        if (cin.good()) // Validating input is 'good'
         {
 
             if (option == 1)
@@ -50,6 +50,7 @@ int main()
                     }
                     else
                     {
+                        // Quitting application
                         runtask = 0;
                         cout << "Invalid Input -- Quiting Application" << endl;
                         cout << endl;
