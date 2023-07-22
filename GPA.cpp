@@ -69,7 +69,54 @@ int main()
             }
             else if (option == 2)
             {
+                cout << endl;
+                // Expliantion of the process of SGPA calculation
                 cout << "SGPA Calculator Selected" << endl;
+                cout << "You are fist going to enter the credits of the classes" << endl;
+                cout << "Then you are going to enter the grade received" << endl;
+                cout << "For example:" << endl;
+                cout << "Credits > 5" << endl;
+                cout << "Grade > 9.2" << endl;
+
+                cout << endl; // Formatting
+
+                cout << "Lets begin!" << endl;
+
+                cout << endl;
+
+                int classtotal;
+
+                cout << "How many classes? > " << flush;
+
+                cin >> classtotal;
+
+                int i;
+
+                float credittotal = 0; // Will need this for final calculation
+                float gradecredittotal = 0;
+
+                for (i = 0; i < classtotal; i++)
+                {
+
+                    int credits;
+                    float grade;
+
+                    cout << "How many credits was class " << i + 1 << " > " << flush;
+                    cin >> credits;
+
+                    cout << "What was the grade recieved? > " << flush;
+                    cin >> grade;
+
+                    credittotal = credittotal + credits;
+
+                    gradecredittotal = gradecredittotal + (grade * credits);
+                }
+
+                cout << endl;
+                cout << "Your SGPA is: " << gradecredittotal / credittotal << endl;
+                cout << endl;
+                cout << "This eqautes to " << ((gradecredittotal / credittotal) - .75) * 10 << "%" << endl;
+                cout << endl;
             }
             else
             {
