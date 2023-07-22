@@ -17,43 +17,69 @@ int main()
         int option;
         cout << "Select what best fits your needs > " << flush;
         cin >> option;
-        if (option == 1)
+
+        if (cin.good())
         {
-            cout << endl; // Cleaner format in terminal
-            int arraylength;
 
-            cout << "CGPA Calculator Selected" << endl;                         // The calculator choosen
-            cout << "Please enter how many courses you are taking > " << flush; // Entering amount of courses
-            cin >> arraylength;                                                 // Input
-
-            float grade_point[arraylength]; // Array && size - based on users amount of classes
-
-            cout << endl; // Cleaner format in terminal
-            cout << "Please enter the grade points acheived for each class" << endl;
-            cout << "For example: 95" << endl;
-
-            float total = 0;
-
-            int i;
-            for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
+            if (option == 1)
             {
-                cout << "Class " << i + 1 << " > " << flush;
-                cin >> grade_point[i];
-                total = total + grade_point[i];
+                cout << endl; // Cleaner format in terminal
+                int arraylength;
+
+                cout << "CGPA Calculator Selected" << endl;                         // The calculator choosen
+                cout << "Please enter how many courses you are taking > " << flush; // Entering amount of courses
+                cin >> arraylength;                                                 // Input
+
+                float grade_point[arraylength]; // Array && size - based on users amount of classes
+
+                cout << endl; // Cleaner format in terminal
+                cout << "Please enter the grade points acheived for each class" << endl;
+                cout << "For example: 95" << endl;
+
+                float total = 0;
+
+                int i;
+                for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
+                {
+                    cout << "Class " << i + 1 << " > " << flush;
+                    cin >> grade_point[i];
+
+                    if (cin.good())
+                    {
+                        total = total + grade_point[i];
+                    }
+                    else
+                    {
+                        runtask = 0;
+                        cout << "Invalid Input -- Quiting Application" << endl;
+                        cout << endl;
+                        exit(1);
+                    }
+                }
+
+                if (runtask == 1)
+                {
+                    // Calculation of CGPA
+                    cout << endl
+                         << "Your CGPA is: " << total / arraylength << endl;
+
+                    cout << endl; // For formatting
+                }
             }
-
-            cout << endl
-                 << "Your CGPA is: " << total / arraylength << endl;
-
-            cout << endl;
-        }
-        else if (option == 2)
-        {
-            cout << "SGPA Calculator Selected" << endl;
+            else if (option == 2)
+            {
+                cout << "SGPA Calculator Selected" << endl;
+            }
+            else
+            {
+                runtask = 0;
+            }
         }
         else
         {
-            runtask = 0;
+            cout << "Invalid Input -- Quitting Application" << endl;
+            cout << endl;
+            exit(1);
         }
 
     } while (runtask == 1);
