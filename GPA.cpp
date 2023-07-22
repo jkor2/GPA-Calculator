@@ -17,10 +17,27 @@ int main()
         int option;
         cout << "Select what best fits your needs > " << flush;
         cin >> option;
-
         if (option == 1)
         {
-            cout << "CGPA Calculator Selected" << endl;
+            cout << endl; // Cleaner format in terminal
+            int arraylength;
+
+            cout << "CGPA Calculator Selected" << endl;                         // The calculator choosen
+            cout << "Please enter how many courses you are taking > " << flush; // Entering amount of courses
+            cin >> arraylength;                                                 // Input
+
+            float grade_point[arraylength]; // Array && size - based on users amount of classes
+
+            cout << endl; // Cleaner format in terminal
+            cout << "Please enter the grade points acheived for each class" << endl;
+            cout << "For example: 95" << endl;
+
+            int i;
+            for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
+            {
+                cout << "Class " << i + 1 << " > " << flush;
+                cin >> grade_point[i];
+            }
         }
         else if (option == 2)
         {
