@@ -66,7 +66,7 @@ int main()
                         cout << endl
                              << "Your CGPA is: " << total / arraylength << endl;
                         cout << endl; // For formatting
-                        cout << "This equated to " << (total / arraylength) * 9.5 << "%" << endl;
+                        cout << "This equates to " << (total / arraylength) * 9.5 << "%" << endl;
                         cout << endl;
                     }
                 }
