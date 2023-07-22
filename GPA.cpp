@@ -17,58 +17,60 @@ int main()
         int option; // Users selection
         cout << "Select what best fits your needs > " << flush;
         cin >> option;
-
-        if (option == 1)
+        if (cin.good())
         {
-            cout << endl; // Cleaner format in terminal
-            int arraylength;
 
-            cout << "CGPA Calculator Selected" << endl;                         // The calculator choosen
-            cout << "Please enter how many courses you are taking > " << flush; // Entering amount of courses
-            cin >> arraylength;                                                 // Input
-
-            if (cin.good())
+            if (option == 1)
             {
-
-                float grade_point[arraylength]; // Array && size - based on users amount of classes
-
                 cout << endl; // Cleaner format in terminal
-                cout << "Please enter the grade points acheived for each class" << endl;
-                cout << "For example: 9.5" << endl;
+                int arraylength;
 
-                float total = 0;
+                cout << "CGPA Calculator Selected" << endl;                         // The calculator choosen
+                cout << "Please enter how many courses you are taking > " << flush; // Entering amount of courses
+                cin >> arraylength;                                                 // Input
 
-                int i;
-                for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
+                if (cin.good())
                 {
-                    cout << "Class " << i + 1 << " > " << flush;
-                    cin >> grade_point[i];
 
-                    if (cin.good())
+                    float grade_point[arraylength]; // Array && size - based on users amount of classes
+
+                    cout << endl; // Cleaner format in terminal
+                    cout << "Please enter the grade points acheived for each class" << endl;
+                    cout << "For example: 9.5" << endl;
+
+                    float total = 0;
+
+                    int i;
+                    for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
                     {
-                        total = total + grade_point[i];
+                        cout << "Class " << i + 1 << " > " << flush;
+                        cin >> grade_point[i];
+
+                        if (cin.good())
+                        {
+                            total = total + grade_point[i];
+                        }
+                        else
+                        {
+                            // Quitting application
+                            runtask = 0;
+                            cout << "Invalid Input -- Quiting Application" << endl;
+                            cout << endl;
+                            exit(1);
+                        }
                     }
-                    else
+
+                    if (runtask == 1)
                     {
-                        // Quitting application
-                        runtask = 0;
-                        cout << "Invalid Input -- Quiting Application" << endl;
+                        // Calculation of CGPA
+                        cout << endl
+                             << "Your CGPA is: " << total / arraylength << endl;
+                        cout << endl; // For formatting
+                        cout << "This equated to " << (total / arraylength) * 9.5 << "%" << endl;
                         cout << endl;
-                        exit(1);
                     }
-                }
-
-                if (runtask == 1)
-                {
-                    // Calculation of CGPA
-                    cout << endl
-                         << "Your CGPA is: " << total / arraylength << endl;
-                    cout << endl; // For formatting
-                    cout << "This equated to " << (total / arraylength) * 9.5 << "%" << endl;
-                    cout << endl;
                 }
             }
-
             else if (option == 2)
             {
                 cout << endl;
@@ -131,7 +133,6 @@ int main()
             cout << endl;
             exit(1);
         }
-
     } while (runtask == 1);
     {
         cout << "Quitting the application - enjoy your day!" << endl;
