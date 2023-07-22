@@ -32,12 +32,20 @@ int main()
             cout << "Please enter the grade points acheived for each class" << endl;
             cout << "For example: 95" << endl;
 
+            float total = 0;
+
             int i;
             for (i = 0; i < sizeof(grade_point) / sizeof(grade_point[0]); i++)
             {
                 cout << "Class " << i + 1 << " > " << flush;
                 cin >> grade_point[i];
+                total = total + grade_point[i];
             }
+
+            cout << endl
+                 << "Your CGPA is: " << total / arraylength << endl;
+
+            cout << endl;
         }
         else if (option == 2)
         {
